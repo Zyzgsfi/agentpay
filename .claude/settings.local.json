@@ -4,7 +4,17 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:x402.org)",
       "WebFetch(domain:www.quicknode.com)",
-      "Bash(git init:*)"
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(gh repo sync:*)",
+      "Bash(gh auth:*)",
+      "Bash(git remote:*)",
+      "Bash(node:*)",
+      "Bash(./scripts/demo.sh:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }

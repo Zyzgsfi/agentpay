@@ -8,7 +8,7 @@ export interface ServiceDefinition {
   price: string;
   description: string;
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
-  handler: (req: express.Request, res: express.Response) => Promise<void> | void;
+  handler: (req: express.Request, res: express.Response) => any;
 }
 
 export class ServiceAgent extends PaymentAgent {
@@ -92,7 +92,8 @@ export class ServiceAgent extends PaymentAgent {
       this.app.listen(this.port, () => {
         console.log(`🤖 Service Agent ${this.getId()} running on port ${this.port}`);
         console.log(`💳 Agent Address: ${this.getAddress()}`);
-        console.log(`🔧 Services: ${Array.from(this.services.keys()).join(', ')}`);\n        resolve();
+        console.log(`🔧 Services: ${Array.from(this.services.keys()).join(', ')}`);
+        resolve();
       });
     });
   }
@@ -117,7 +118,7 @@ export class ServiceAgent extends PaymentAgent {
     try {
       // First, discover what services the other agent offers
       const servicesResponse = await fetch(`${otherAgentUrl}/services`);
-      const services = await servicesResponse.json();
+      const services: any = await servicesResponse.json();
 
       console.log(`Collaborating with agent at ${otherAgentUrl}`);
       console.log(`Available services:`, services.services.map((s: any) => s.name));

@@ -78,7 +78,7 @@ export class PaymentAgent {
 
       // If payment is required (402 status)
       if (response.status === 402) {
-        const paymentInfo = await response.json();
+        const paymentInfo: any = await response.json();
         console.log('Payment required:', paymentInfo);
 
         // Check if payment amount is within our limit

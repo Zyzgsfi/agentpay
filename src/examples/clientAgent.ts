@@ -71,7 +71,7 @@ async function createClientAgent() {
         // Small delay between requests
         await new Promise(resolve => setTimeout(resolve, 1000));
         
-      } catch (error) {
+      } catch (error: any) {
         console.error(`❌ Failed to use ${demo.name}:`, error.message);
       }
     }
@@ -82,7 +82,7 @@ async function createClientAgent() {
     try {
       const balance = await agent.getBalance();
       console.log(`💰 Current balance: ${balance} ETH`);
-    } catch (error) {
+    } catch (error: any) {
       console.error('❌ Failed to check balance:', error.message);
     }
   }
@@ -99,7 +99,7 @@ async function createClientAgent() {
     for (const endpoint of serviceEndpoints) {
       try {
         const response = await fetch(endpoint);
-        const services = await response.json();
+        const services: any = await response.json();
         
         console.log(`\\n🤖 Agent: ${services.agentId}`);
         console.log(`📦 Services available:`);
@@ -109,7 +109,7 @@ async function createClientAgent() {
           console.log(`    ${service.description}`);
         });
         
-      } catch (error) {
+      } catch (error: any) {
         console.error(`❌ Failed to discover services at ${endpoint}:`, error.message);
       }
     }
@@ -120,7 +120,7 @@ async function createClientAgent() {
     try {
       await agent.registerWithDirectory('http://localhost:3000', ['client']);
       console.log('✅ Registered with directory');
-    } catch (error) {
+    } catch (error: any) {
       console.error('❌ Failed to register with directory:', error.message);
     }
   }
@@ -153,7 +153,7 @@ async function runInteractiveDemo() {
   });
   
   function askCommand() {
-    rl.question('\\nEnter command: ', async (command) => {
+    rl.question('\\nEnter command: ', async (command: any) => {
       switch (command.trim().toLowerCase()) {
         case '1':
         case 'balance':
