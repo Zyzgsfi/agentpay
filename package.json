@@ -1,0 +1,31 @@
+{
+  "name": "agentpay",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon src/index.ts",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["x402", "cryptocurrency", "payments", "agents", "ai", "blockchain", "base", "coinbase", "autonomous", "micropayments"],
+  "author": "",
+  "license": "MIT",
+  "description": "Agent-to-agent payment system using Coinbase's x402 protocol for autonomous cryptocurrency transactions",
+  "dependencies": {
+    "@coinbase/x402": "^0.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.1.0",
+    "ethers": "^6.15.0",
+    "express": "^5.1.0",
+    "viem": "^2.31.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.12",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
